@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Button, Thumbnail } from 'react-bootstrap';
+import { Grid, Row, Col, button, Thumbnail } from 'react-bootstrap';
 import Header from '../components/header';
 import './librarypage.css';
 import axios from 'axios';
@@ -8,25 +8,16 @@ import axios from 'axios';
 
 class Librarypage extends Component {
 
-
-
   constructor(props) {
     super(props);
 
     this.state = {
-
       library: []
-      // img: '',
-      // title: '',
-      // author: '',
-      // subject: '',
-      // description: '',
-      // playpath: ''
     }
   }
 
-  searchbtn = (e) => {
-
+  handleSubmit = (e) => {
+    e.preventDefault();
     let data = {}
     data.searchbar = this.refs.searchbar.value;
     console.log(data);
@@ -34,12 +25,32 @@ class Librarypage extends Component {
     axios.get('/search/' + data.searchbar)
     .then(function(response){
       console.log('it worked', response.data); // ex.: { user: 'Your User'}
-      console.log('it worked', response.status); // ex.: 200
+      console.log('it worked', response.status);
+       // ex.: 200
     })
     .catch(function (error) {
       console.log(error);
       console.log('error getting video', error.status);
     });
+    // let renderSearch = () => {
+    //   return(
+    //     <div>
+    //     {response.data.map(function() {
+    //       return(
+    //         <Thumbnail src="{.v}" alt="242x200" >
+    //         <h4>Title:</h4>
+    //         <h4> {value.title}</h4>
+    //         <p>Author: {value.author}</p>
+    //         <p>Subject: {value.topics}</p>
+    //         <p>Description: {value.description}</p>
+    //         </Thumbnail>
+    //       );
+    //     })}
+    //     </div>
+    //   )
+    // }
+    //
+    // renderSearch();
   }
 
   componentDidMount() {
@@ -68,23 +79,26 @@ class Librarypage extends Component {
 
   render() {
 
-
+      // play() = (e) => {
+      //
+      // }
 
       let renderLibrary = () => {
         return(
           <div>
-          {this.state.library.map(function(library) {
-            return(
-              <Thumbnail src="{library.v}" alt="242x200" >
-              <h4>Title:</h4>
-              <h4>{library.title}</h4>
-              <p>Author:{library.author}</p>
-              <p>Subject:{library.topics}</p>
-              <p>Description:{library.description}</p>
-              </Thumbnail>
-            );
-          })}
+            {this.state.library.map(function(library) {
+              return(
+                <Thumbnail src={library.v} alt="242x200" >
+                <h4>Title:</h4>
+                <h4> {library.title}</h4>
+                <p>Author: {library.author}</p>
+                <p>Subject: {library.topics}</p>
+                <p>Description: {library.description}</p>
+                </Thumbnail>
+              );
+            })}
           </div>
+
         )
       }
       // <Button bsStyle="default" block onClick={this.play}>Play</Button>
@@ -100,8 +114,8 @@ class Librarypage extends Component {
             <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
             <Row className="search">
               <div className="col-sm-10">
-                <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search" />
-                <button className="btn btn-info" id="sbtn" onClick={this.searchbtn}>
+                <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search"/>
+                <button className="btn btn-info" id="sbtn" onClick={(e) => this.handleSubmit(e)}>
                 <span className="glyphicon glyphicon-search" aria-hidden="true" />
                 </button>
               </div>
