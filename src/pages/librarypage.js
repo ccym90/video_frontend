@@ -69,17 +69,21 @@ class Librarypage extends Component {
 
       let filterLibrary = () => {
         return(
-          <div>
-          <h3>Search Results</h3>
+          <div className="filteredlibrary">
           {this.state.filtered.map(function(filtered) {
             return(
-              <Thumbnail src={filtered.v} alt="242x200" >
-              <h4>Title:</h4>
+              <div className="filter">
+              <h3>Search Results</h3>
+              <Thumbnail src alt="242x200" >
+              <h4>Title: </h4>
               <h4> {filtered.title}</h4>
               <p>Author: {filtered.author}</p>
               <p>Subject: {filtered.topics}</p>
               <p>Description: {filtered.description}</p>
+              <video controls='true' src={filtered.path}/>
               </Thumbnail>
+              <hr/>
+              </div>
             );
           })}
           </div>
@@ -91,7 +95,8 @@ class Librarypage extends Component {
           <div>
             {this.state.library.map(function(library) {
               return(
-                <Thumbnail src={library.v} alt="242x200" >
+                <Thumbnail src={library.path} alt="242x200" >
+                <video controls src={library.path}/>
                 <h4>Title:</h4>
                 <h4> {library.title}</h4>
                 <p>Author: {library.author}</p>
@@ -114,30 +119,32 @@ class Librarypage extends Component {
             <h1>Video Library</h1>
             <hr/>
             <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
-            <Row className="search">
-              <div className="col-sm-10">
-                <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search Library..."/>
-                <button className="btn btn-info" id="sbtn" onClick={this.handleSubmit}>
-                <span className="glyphicon glyphicon-search" aria-hidden="true" />
-                </button>
-              </div>
-            <br/>
-            <hr/>
+              <Row className="search">
+                <div className="col-sm-10">
+                  <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search Library..."/>
+                  <button className="btn btn-info" id="sbtn" onClick={this.handleSubmit}>
+                  <span className="glyphicon glyphicon-search" aria-hidden="true" />
+                  </button>
+                </div>
+              <br/>
+              <hr/>
             <Row className="searchResults">
             <div>
             {filterLibrary()}
             </div>
             </Row>
             </Row>
-            <Grid>
-              <Row className="thumbnails">
-              <Col xs={6} md={4}>
-              <div>
-              {renderLibrary()}
-              </div>
-              </Col>
-              </Row>
-            </Grid>
+            <h3>Library</h3>
+              <Grid>
+                  <Row className="thumbnails">
+                  <Col xs={6} md={4}>
+                  <div>
+                  {renderLibrary()}
+                  </div>
+                  </Col>
+                  </Row>
+              </Grid>
+              <hr/>
           </Row>
           </Grid>
       </div>

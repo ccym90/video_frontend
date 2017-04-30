@@ -58,7 +58,7 @@ class uploadPage extends Component {
     data.append('author', this.state.author);
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
-    data.append('file', this.state.file);
+    data.append('file', this.state.file, 'video.webm');
 
 
     const config = {  };
