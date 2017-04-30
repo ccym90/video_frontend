@@ -16,44 +16,7 @@ class Librarypage extends Component {
     }
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let data = {}
-    data.searchbar = this.refs.searchbar.value;
-    console.log(data);
-
-    axios.get('/search/' + data.searchbar)
-    .then(function(response){
-      console.log('it worked', response.data); // ex.: { user: 'Your User'}
-      console.log('it worked', response.status);
-       // ex.: 200
-    })
-    .catch(function (error) {
-      console.log(error);
-      console.log('error getting video', error.status);
-    });
-    // let renderSearch = () => {
-    //   return(
-    //     <div>
-    //     {response.data.map(function() {
-    //       return(
-    //         <Thumbnail src="{.v}" alt="242x200" >
-    //         <h4>Title:</h4>
-    //         <h4> {value.title}</h4>
-    //         <p>Author: {value.author}</p>
-    //         <p>Subject: {value.topics}</p>
-    //         <p>Description: {value.description}</p>
-    //         </Thumbnail>
-    //       );
-    //     })}
-    //     </div>
-    //   )
-    // }
-    //
-    // renderSearch();
-  }
-
-  componentDidMount() {
+    componentDidMount() {
     let _this = this;
     axios.get('/all')
     .then(function(response){
@@ -77,12 +40,25 @@ class Librarypage extends Component {
     this.unmounted = true;
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {}
+    data.searchbar = this.refs.searchbar.value;
+    console.log(data);
+
+    axios.get('/search/' + data.searchbar)
+    .then(function(response){
+      console.log('it worked', response.data); // ex.: { user: 'Your User'}
+      console.log('it worked', response.status);
+      // ex.: 200
+    })
+    .catch(function (error) {
+      console.log(error);
+      console.log('error getting video', error.status);
+    });
+  }
+
   render() {
-
-      // play() = (e) => {
-      //
-      // }
-
       let renderLibrary = () => {
         return(
           <div>
@@ -98,7 +74,6 @@ class Librarypage extends Component {
               );
             })}
           </div>
-
         )
       }
       // <Button bsStyle="default" block onClick={this.play}>Play</Button>
@@ -114,8 +89,8 @@ class Librarypage extends Component {
             <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
             <Row className="search">
               <div className="col-sm-10">
-                <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search"/>
-                <button className="btn btn-info" id="sbtn" onClick={(e) => this.handleSubmit(e)}>
+                <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search Library..."/>
+                <button className="btn btn-info" id="sbtn" onClick={this.handleSubmit}>
                 <span className="glyphicon glyphicon-search" aria-hidden="true" />
                 </button>
               </div>
