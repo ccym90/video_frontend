@@ -35,7 +35,7 @@ class Recordpage extends Component {
               <br/>
               <hr/>
               <Row className="formrow">
-                <Userform />
+              
               </Row>
               <hr/>
               <br/>

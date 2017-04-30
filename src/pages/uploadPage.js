@@ -85,7 +85,6 @@ class uploadPage extends Component {
                 <p>Here you can upload a video from your mobile, or computer and save to the video library.
                 <strong> Before saving, please ensure you fill out the form below.</strong> </p>
                 <p>Information to see how to use the uploader <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
-
               <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
                 <div className="form-group">
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
@@ -97,7 +96,6 @@ class uploadPage extends Component {
                            onChange={this.onChange}/>
                   </div>
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
                   <div className="col-sm-10">
@@ -108,7 +106,6 @@ class uploadPage extends Component {
                            onChange={(e) => this.onChange(e)}/>
                   </div>
                 </div>
-
               <div className="form-group">
                 <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
                 <div className="col-sm-10">
@@ -119,7 +116,6 @@ class uploadPage extends Component {
                          onChange={(e) => this.onChange(e)}/>
                 </div>
               </div>
-
               <div className="form-group">
                 <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
                 <div className="col-sm-10">
@@ -130,7 +126,6 @@ class uploadPage extends Component {
                          onChange={(e) => this.onChange(e)}/>
                 </div>
               </div>
-
               <div className="form-group">
                 <label htmlFor="inputTopics" className="col-sm-2 control-label">
                   Choose A File</label>
@@ -143,7 +138,6 @@ class uploadPage extends Component {
                     <br />
                 </div>
               </div>
-
                 <div className="form-group">
                   <div className="col-sm-offset-2 col-sm-10">
                     <button type="submit"
@@ -152,16 +146,13 @@ class uploadPage extends Component {
                   </div>
                 </div>
               </form>
-
               </Row>
               <hr/>
               <br/>
           </Grid>
       </div>
       </div>
-
     )
   }
 }
-
 export default uploadPage;

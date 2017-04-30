@@ -17,22 +17,22 @@ class Userform extends Component {
 
     e.preventDefault();
 
-    let data = {}
-     data.author = this.refs.authorInput.value;
-     data.title = this.refs.titleInput.value;
-     data.description = this.refs.descriptionInput.value;
-     data.topics = this.refs.topicsInput.value;
+    // let data = {}
+    //  data.author = this.refs.authorInput.value;
+    //  data.title = this.refs.titleInput.value;
+    //  data.description = this.refs.descriptionInput.value;
+    //  data.topics = this.refs.topicsInput.value;
 
 
-    axios.post('/upload',
-      { title : data.title, author: data.author, description: data.description, topics: data.topics  }
-    )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // axios.post('/upload',
+    //   { title : data.title, author: data.author, description: data.description, topics: data.topics  }
+    // )
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
   }
 
