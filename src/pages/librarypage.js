@@ -12,7 +12,8 @@ class Librarypage extends Component {
     super(props);
 
     this.state = {
-      library: []
+      library: [],
+      filtered: []
     }
   }
 
@@ -42,23 +43,49 @@ class Librarypage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    let _this = this;
     let data = {}
     data.searchbar = this.refs.searchbar.value;
-    console.log(data);
-
     axios.get('/search/' + data.searchbar)
     .then(function(response){
-      console.log('it worked', response.data); // ex.: { user: 'Your User'}
-      console.log('it worked', response.status);
+      let search = response.data;
+      _this.setState({
+        filtered: search
+      })
+      console.log('it worked the response data', response.data); // ex.: { user: 'Your User'}
+      console.log('it worked the response status', response.status);
+      console.log('filtered state', _this.state.filtered)
       // ex.: 200
     })
     .catch(function (error) {
       console.log(error);
       console.log('error getting video', error.status);
     });
+
   }
 
+
   render() {
+
+      let filterLibrary = () => {
+        return(
+          <div>
+          <h3>Search Results</h3>
+          {this.state.filtered.map(function(filtered) {
+            return(
+              <Thumbnail src={filtered.v} alt="242x200" >
+              <h4>Title:</h4>
+              <h4> {filtered.title}</h4>
+              <p>Author: {filtered.author}</p>
+              <p>Subject: {filtered.topics}</p>
+              <p>Description: {filtered.description}</p>
+              </Thumbnail>
+            );
+          })}
+          </div>
+        )
+      }
+
       let renderLibrary = () => {
         return(
           <div>
@@ -94,6 +121,13 @@ class Librarypage extends Component {
                 <span className="glyphicon glyphicon-search" aria-hidden="true" />
                 </button>
               </div>
+            <br/>
+            <hr/>
+            <Row className="searchResults">
+            <div>
+            {filterLibrary()}
+            </div>
+            </Row>
             </Row>
             <Grid>
               <Row className="thumbnails">
