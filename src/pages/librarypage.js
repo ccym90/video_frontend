@@ -13,7 +13,8 @@ class Librarypage extends Component {
 
     this.state = {
       library: [],
-      filtered: []
+      filtered: [],
+      resultsFound: []
     }
   }
 
@@ -41,43 +42,36 @@ class Librarypage extends Component {
     this.unmounted = true;
   }
 
-  onConfirm() {
-    console.log('Hiding alert...');
-    this.setState({
-      alert: null
-    });
-  }
 
   handleClick = (e) => {
     e.preventDefault();
-    let _this = this;
+
     let data = {}
     data.searchbar = this.refs.searchbar.value;
     axios.get('/search/' + data.searchbar)
-    .then(function(response){
+    .then((response) => {
 
 
       let search = response.data;
-      _this.setState({
+      this.setState({
         filtered: search
       })
 
 
         if (search.length === 0) {
+          // this.state.resultsFound =
+          this.readMe.innerHTML = "Sorry we didn't find any relevant videos to your search"
 
-          <SweetAlert title="Here's a message!" onConfirm={this.onConfirm}>
-            It's pretty, isn't it?
-          </SweetAlert>
+            // this.refs.readMe.getInputDOMNode().innerHTML = "Sorry nothing found";
 
         } else {
-
+          this.readMe.innerHTML = "Search results"
         }
-
 
 
       console.log('it worked the response data', response.data); // ex.: { user: 'Your User'}
       console.log('it worked the response status', response.status);
-      console.log('filtered state', _this.state.filtered)
+      console.log('filtered state', this.state.filtered)
 
       // ex.: 200
     })
@@ -166,37 +160,39 @@ class Librarypage extends Component {
             <hr/>
             <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
               <Row className="search">
-                <div className="col-sm-12">
-
-
-
-
-                  <div id="custom-search-input">
-                    <div className="input-group col-md-12">
-                    <input 	ref="searchbar"
-                            type="text"
-                            className="form-control input-lg"
-                            id="noShow"
-                            placeholder="Search Library..."/>
-                        <span className="input-group-btn">
-                          <button type="button"
-                                  className="btn btn-danger deleteButton"
-                                  onClick={this.handleClick}>
-                            <span className="glyphicon glyphicon-search" aria-hidden="true" />
-                          </button>
-                        </span>
-
-                  </div>
-                  </div>
-
-              </div>
-
 
               <br/>
               <hr/>
 
             <Row className="filteredlibrary">
-              <div ref='hello' value='${hello}'/>
+            <div className="col-sm-12">
+
+              <div id="custom-search-input">
+                <div className="input-group col-md-12">
+                  <input 	ref="searchbar"
+                          type="text"
+                          className="form-control input-lg"
+                          id="noShow"
+                          placeholder="Search Library..."/>
+                    <span className="input-group-btn">
+                      <button type="button"
+                              className="btn btn-danger deleteButton"
+                              onClick={this.handleClick}>
+                        <span className="glyphicon glyphicon-search" aria-hidden="true" />
+                      </button>
+                    </span>
+
+                </div>
+              </div>
+
+          </div>
+
+          <br/>
+          <hr/>
+          <br/>
+
+
+              <h3 ref={(el) => this.readMe = el}  dangerouslySetInnerHTML={{ __html: "" }}></h3>
                 <div>
                 {filterLibrary()}
                 </div>
