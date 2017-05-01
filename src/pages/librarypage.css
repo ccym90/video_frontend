@@ -29,6 +29,22 @@
 .custom-search-input .glyphicon-search{
 	font-size: 23px;
 }*/
+/*
+.wrapper-library {
+  background-color: black;
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 12px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}*/
+
+#card {
+  background-color: black;
+  width: 300px;
+
+overflow: hidden;
+}
+
 
 .videorow {
   padding: 60px;
@@ -49,7 +65,7 @@
   margin: 0 auto 0 auto;
   max-width: 60em;
   padding: 1em 1.5em 1.3em 1.5em;
-  /*background-color: black;*/
+  background-color: black;
 }
 
 .searchbar {

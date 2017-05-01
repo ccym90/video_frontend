@@ -65,21 +65,6 @@ class Librarypage extends Component {
   }
 
 
-  //
-  // <div className="filter">
-  // <h3>Search Results</h3>
-  // <div >
-  //   <h4>Title: </h4>
-  //   <h4> {filtered.title}</h4>
-  //   <p>Author: {filtered.author}</p>
-  //   <p>Subject: {filtered.topics}</p>
-  //   <p>Description: {filtered.description}</p>
-  //   <video controls='true' src={filtered.path}/>
-  // </div>
-  // <hr/>
-  // </div>
-
-
   render() {
 
       let searchResults = () => {
@@ -117,26 +102,31 @@ class Librarypage extends Component {
         )
       }
 
+
       let renderLibrary = () => {
         return(
           <div>
+
             {this.state.library.map(function(library) {
               return(
-                <div src={library.path} alt="242x200" >
-                <video controls src={library.path}/>
-                <Thumbnail>
-                <Player
-                  playsInline
-                  poster="/assets/poster.png"
-                  src="{libaray.path}"
-                />
-                <h4>Title:</h4>
-                <h4> {library.title}</h4>
-                <p>Author: {library.author}</p>
-                <p>Subject: {library.topics}</p>
-                <p>Description: {library.description}</p>
-                </Thumbnail>
+
+                <div className="row" className='wrapper-library '>
+                  <div className="col-xs-6 col-md-6" id='card'>
+                    <div>
+                        <div className="caption">
+                          <h3>{library.title}</h3>
+                          <p>
+                            <p>Author: {library.author}</p>
+                            <p>Subject: {library.topics}</p>
+                            <p>Description: {library.description}</p>
+                            <video controls='true' src={library.path}/>
+                          </p>
+                        </div>
+                    </div>
+
+                  </div>
                 </div>
+
               );
             })}
           </div>
@@ -162,22 +152,23 @@ class Librarypage extends Component {
                 </div>
               <br/>
               <hr/>
+
             <Row className="searchResults">
-            <div>
-            {filterLibrary()}
-            </div>
+              <h3>Search Results </h3>
+                <div>
+                {filterLibrary()}
+                </div>
             </Row>
+
             </Row>
-            <h3>Library</h3>
-              <Grid>
-                  <Row className="thumbnails">
-                  <Col xs={6} md={4}>
-                  <div>
-                  {renderLibrary()}
-                  </div>
-                  </Col>
-                  </Row>
-              </Grid>
+
+            <Row className="libraryResults">
+              <h3>Library</h3>
+                <div>
+                {renderLibrary()}
+                </div>
+            </Row>
+
               <hr/>
           </Row>
           </Grid>
