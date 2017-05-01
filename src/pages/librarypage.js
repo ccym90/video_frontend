@@ -109,7 +109,7 @@ class Librarypage extends Component {
             {this.state.library.map(function(library) {
               return(
 
-                <div className="row" className='wrapper-library '>
+                <div className="row" >
                   <div className="col-xs-6 col-md-6" id='card'>
                     <div>
                         <div className="caption">
@@ -118,11 +118,15 @@ class Librarypage extends Component {
                             <p>Author: {library.author}</p>
                             <p>Subject: {library.topics}</p>
                             <p>Description: {library.description}</p>
-                            <video controls='true' src={library.path}/>
                           </p>
                         </div>
                     </div>
 
+
+                  </div>
+
+                  <div className="col-xs-6 col-md-6" id='card'>
+                    <video  controls='true' src={library.path}/>
                   </div>
                 </div>
 

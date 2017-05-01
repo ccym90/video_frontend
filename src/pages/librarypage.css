@@ -39,12 +39,21 @@
 }*/
 
 #card {
-  background-color: black;
-  width: 300px;
+  /*background-color: black;*/
 
-overflow: hidden;
+  overflow: hidden;
 }
 
+#videoStyle {
+  float: right;
+  left: 108px;
+top: 0;
+background-color: black;
+}
+
+/*.libraryResults {
+  background-color: black;
+}*/
 
 .videorow {
   padding: 60px;
