@@ -30,6 +30,11 @@
 	font-size: 23px;
 }*/
 
+.videorow {
+  padding: 60px;
+  height: 80px
+}
+
 .container {
   margin: 0 auto 0 auto;
   max-width: 60em;
@@ -38,12 +43,13 @@
 
 .filter {
   background-color: rgba(57, 122, 154, 0.63);
-  
+
 }
 .filteredlibrary {
   margin: 0 auto 0 auto;
   max-width: 60em;
   padding: 1em 1.5em 1.3em 1.5em;
+  /*background-color: black;*/
 }
 
 .searchbar {
