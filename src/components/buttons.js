@@ -132,81 +132,86 @@ class Buttons extends React.Component {
   render() {
     return (
       <div>
-      <div className="buttons">
-      <Col xs={12} md={12} xsPush={2} mdPush={3}>
-      <ButtonToolbar>
-          <Tooltip title='Click here to begin recording video' position='left'>
-            <button className='btn btn-success'ref='record' onClick={this.startRecord}>Start</button>
-          </Tooltip>
+        <div className="buttons">
+        <Col xs={12} md={12} xsPush={2} mdPush={3}>
+        <ButtonToolbar>
+            <Tooltip title='Click here to begin recording video' position='left'>
+              <button className='btn btn-success'ref='record' onClick={this.startRecord}>Start</button>
+            </Tooltip>
 
-          <Tooltip title='Click here to stop recording video' position='top'>
-          <button className='btn btn-danger'ref='stop' onClick={this.stopRecord}>Stop</button>
-          </Tooltip>
+            <Tooltip title='Click here to stop recording video' position='top'>
+            <button className='btn btn-danger'ref='stop' onClick={this.stopRecord}>Stop</button>
+            </Tooltip>
 
-          <Tooltip title='Click here to playback the video you just recorded' position='bottom'>
-          <button  className='btn btn-warning' ref='preview' onClick={this.startPreview}>Preview</button>
-          </Tooltip>
+            <Tooltip title='Click here to playback the video you just recorded' position='bottom'>
+            <button  className='btn btn-warning' ref='preview' onClick={this.startPreview}>Preview</button>
+            </Tooltip>
 
-          <Tooltip title='Click here to download your video to your computer' position='right'>
-          <button  className='btn btn-info'ref='download' onClick={this.download}>Download</button>
-          </Tooltip>
-      </ButtonToolbar>
-      </Col>
-      </div>
-      <div className="formrow">
-        <Row>
-        <hr/>
-          <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
-            <div className="form-group">
-              <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
-                <div className="col-sm-10">
-                  <input type="text"
-                         className="form-control"
-                         id="title"
-                         placeholder="e.g. Addition & Subtraction"
-                         onChange={this.onChange}/>
+            <Tooltip title='Click here to download your video to your computer' position='right'>
+            <button  className='btn btn-info'ref='download' onClick={this.download}>Download</button>
+            </Tooltip>
+        </ButtonToolbar>
+        </Col>
+        </div>
+        <div className="formrow">
+          <Col xs={12} md={12}>
+          <br/>
+          <hr/>
+            <Row>
+              <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
+                <div className="form-group">
+                  <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
+                    <div className="col-sm-10">
+                      <input type="text"
+                             className="form-control"
+                             id="title"
+                             placeholder="e.g. Addition & Subtraction"
+                             onChange={this.onChange}/>
+                    </div>
                 </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
-              <div className="col-sm-10">
-                <input type="text"
-                       className="form-control"
-                       id="author"
-                       placeholder="e.g. Joe Bloggs"
-                       onChange={(e) => this.onChange(e)}/>
-              </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
-              <div className="col-sm-10">
-                <input type="text"
-                       className="form-control"
-                       id="subject"
-                       placeholder="e.g. Math"
-                       onChange={(e) => this.onChange(e)}/>
-              </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
-              <div className="col-sm-10">
-                <input type="text"
-                       className="form-control"
-                       id="description"
-                       placeholder="e.g. How to add and subtract with positive and negative numbers"
-                       onChange={(e) => this.onChange(e)}/>
-              </div>
-            </div>
-              <div className="form-group">
-                <div className="col-sm-offset-2 col-sm-10">
-                  <button type="submit"
-                          className="btn btn-primary"
-                          id="submit"> Save</button>
+                <div className="form-group">
+                  <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
+                  <div className="col-sm-10">
+                    <input type="text"
+                           className="form-control"
+                           id="author"
+                           placeholder="e.g. Joe Bloggs"
+                           onChange={(e) => this.onChange(e)}/>
+                  </div>
                 </div>
-              </div>
-          </form>
-       </Row>
-     </div>
+                <div className="form-group">
+                  <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
+                  <div className="col-sm-10">
+                    <input type="text"
+                           className="form-control"
+                           id="subject"
+                           placeholder="e.g. Math"
+                           onChange={(e) => this.onChange(e)}/>
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
+                  <div className="col-sm-10">
+                    <input type="text"
+                           className="form-control"
+                           id="description"
+                           placeholder="e.g. How to add and subtract with positive and negative numbers"
+                           onChange={(e) => this.onChange(e)}/>
+                  </div>
+                </div>
+                  <div className="form-group">
+                  <Col xs={12} md={12} mdPush={10}>
+                    <button type="submit"
+                            className="btn btn-primary"
+                            id="submit"> Save
+                    </button>
+                  </Col>
+                  </div>
+                </form>
+                <hr/>
+            </Row>
+          </Col>
+        </div>
      </div>
     )
   }

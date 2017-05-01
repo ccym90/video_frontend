@@ -64,22 +64,6 @@ class Librarypage extends Component {
 
   }
 
-
-  //
-  // <div className="filter">
-  // <h3>Search Results</h3>
-  // <div >
-  //   <h4>Title: </h4>
-  //   <h4> {filtered.title}</h4>
-  //   <p>Author: {filtered.author}</p>
-  //   <p>Subject: {filtered.topics}</p>
-  //   <p>Description: {filtered.description}</p>
-  //   <video controls='true' src={filtered.path}/>
-  // </div>
-  // <hr/>
-  // </div>
-
-
   render() {
 
       let searchResults = () => {

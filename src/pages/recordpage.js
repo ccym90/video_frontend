@@ -42,9 +42,6 @@ class Recordpage extends Component {
                 <Buttons />
               </Row>
               <br/>
-              <hr/>
-              <hr/>
-              <br/>
             </Grid>
         </div>
       </div>
