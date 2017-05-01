@@ -74,23 +74,26 @@ class Librarypage extends Component {
 
       let filterLibrary = () => {
         return(
-          <div className="filteredlibrary">
+          <div>
           {this.state.filtered.map(function(filtered) {
             return(
-              <div className="row">
-                  <div className="col-xs-6 col-md-6">
-                  <div className="thumbnail" responsive>
+
+              <div className="row" >
+                <div className="col-xs-6 col-md-6" id='card'>
+                  <div>
                       <div className="caption">
                         <h3>{filtered.title}</h3>
                         <p>
                           <p>Author: {filtered.author}</p>
                           <p>Subject: {filtered.topics}</p>
                           <p>Description: {filtered.description}</p>
-                          <video controls='true' src={filtered.path}/>
                         </p>
-                        <p><a href="#" className="btn btn-primary" role="button">Play</a></p>
                       </div>
                   </div>
+                </div>
+
+                <div className="col-xs-6 col-md-6" id='card'>
+                  <video  controls='true' src={filtered.path}/>
                 </div>
               </div>
 
@@ -121,8 +124,6 @@ class Librarypage extends Component {
                           </p>
                         </div>
                     </div>
-
-
                   </div>
 
                   <div className="col-xs-6 col-md-6" id='card'>
@@ -156,7 +157,7 @@ class Librarypage extends Component {
               <br/>
               <hr/>
 
-            <Row className="searchResults">
+            <Row className="filteredlibrary">
               <h3>Search Results </h3>
                 <div>
                 {filterLibrary()}
