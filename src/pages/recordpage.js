@@ -26,14 +26,14 @@ class Recordpage extends Component {
               </Row>
               <Row className="videorow" >
                 <div className='webcam'>
-                <Col xs={6} md={6}>
-                  <Webcam />
-                </Col>
+                  <Col xs={6} md={6}>
+                    <Webcam />
+                  </Col>
                 </div>
                 <div className='playback'>
-                <Col xs={6} md={6}>
-                  <Playback />
-                </Col>
+                  <Col xs={6} md={6}>
+                    <Playback />
+                  </Col>
                 </div>
               </Row>
               <br/>
