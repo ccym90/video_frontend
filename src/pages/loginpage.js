@@ -20,7 +20,7 @@ class LoginPage extends Component {
                   <Col xs={6} md={6} xsPush={3} mdPush={3}>
                     <br/>
                       <div className="form-login">
-                      <p>Welcome back please enter login details</p>
+                      <p className="loginwelcome">Welcome back please enter login details</p>
                       <input type="text" id="userName" className="form-control input-sm chat-input" placeholder="Username" />
                       <br/>
                       <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="Password" />
