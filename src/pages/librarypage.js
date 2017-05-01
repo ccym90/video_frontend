@@ -64,7 +64,6 @@ class Librarypage extends Component {
 
   }
 
-
   render() {
 
       let searchResults = () => {
