@@ -55,6 +55,7 @@ class Librarypage extends Component {
       console.log('it worked the response data', response.data); // ex.: { user: 'Your User'}
       console.log('it worked the response status', response.status);
       console.log('filtered state', _this.state.filtered)
+
       // ex.: 200
     })
     .catch(function (error) {
@@ -65,25 +66,53 @@ class Librarypage extends Component {
   }
 
 
+  //
+  // <div className="filter">
+  // <h3>Search Results</h3>
+  // <div >
+  //   <h4>Title: </h4>
+  //   <h4> {filtered.title}</h4>
+  //   <p>Author: {filtered.author}</p>
+  //   <p>Subject: {filtered.topics}</p>
+  //   <p>Description: {filtered.description}</p>
+  //   <video controls='true' src={filtered.path}/>
+  // </div>
+  // <hr/>
+  // </div>
+
+
   render() {
+
+      let searchResults = () => {
+        return (
+          <h3>Search Results</h3>
+        )
+      }
 
       let filterLibrary = () => {
         return(
           <div className="filteredlibrary">
           {this.state.filtered.map(function(filtered) {
             return(
-              <div className="filter">
-              <h3>Search Results</h3>
-              <Thumbnail src alt="242x200" >
-              <h4>Title: </h4>
-              <h4> {filtered.title}</h4>
-              <p>Author: {filtered.author}</p>
-              <p>Subject: {filtered.topics}</p>
-              <p>Description: {filtered.description}</p>
-              <video controls='true' src={filtered.path}/>
-              </Thumbnail>
-              <hr/>
+
+              <div className="row">
+                  <div className="col-xs-6 col-md-6">
+                  <div className="thumbnail" responsive>
+                      <div className="caption">
+                        <h3>{filtered.title}</h3>
+                        <p>
+                          <p>Author: {filtered.author}</p>
+                          <p>Subject: {filtered.topics}</p>
+                          <p>Description: {filtered.description}</p>
+                          <video controls='true' src={filtered.path}/>
+                        </p>
+                        <p><a href="#" className="btn btn-primary" role="button">Play</a></p>
+                      </div>
+                  </div>
+                </div>
               </div>
+
+
             );
           })}
           </div>
@@ -95,14 +124,14 @@ class Librarypage extends Component {
           <div>
             {this.state.library.map(function(library) {
               return(
-                <Thumbnail src={library.path} alt="242x200" >
+                <div src={library.path} alt="242x200" >
                 <video controls src={library.path}/>
                 <h4>Title:</h4>
                 <h4> {library.title}</h4>
                 <p>Author: {library.author}</p>
                 <p>Subject: {library.topics}</p>
                 <p>Description: {library.description}</p>
-                </Thumbnail>
+                </div>
               );
             })}
           </div>
