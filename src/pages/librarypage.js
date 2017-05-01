@@ -3,8 +3,8 @@ import { Grid, Row, Col, button, Thumbnail } from 'react-bootstrap';
 import Header from '../components/header';
 import './librarypage.css';
 import axios from 'axios';
-import  { Player } from 'video-react';
-<link rel="stylesheet" href="/css/video-react.css" />
+import { Player } from 'video-react';
+
 class Librarypage extends Component {
 
   constructor(props) {
@@ -73,18 +73,18 @@ class Librarypage extends Component {
             return(
               <div className="filter">
               <h3>Search Results</h3>
-              <div className="thumbnail">
+              <Thumbnail>
               <Player
               playsInline
               poster="/assets/poster.png"
-              src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+              src={filtered.path}
               />
               <h4>Title: </h4>
               <h4> {filtered.title}</h4>
               <p>Author: {filtered.author}</p>
               <p>Subject: {filtered.topics}</p>
               <p>Description: {filtered.description}</p>
-              </div>
+              </Thumbnail>
               <hr/>
               </div>
             );
@@ -98,18 +98,18 @@ class Librarypage extends Component {
           <div>
             {this.state.library.map(function(library) {
               return(
-                <div className="thumbnail">
+                <Thumbnail>
                 <Player
                   playsInline
                   poster="/assets/poster.png"
-                  src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                  src="{libaray.path}"
                 />
                 <h4>Title:</h4>
                 <h4> {library.title}</h4>
                 <p>Author: {library.author}</p>
                 <p>Subject: {library.topics}</p>
                 <p>Description: {library.description}</p>
-                </div>
+                </Thumbnail>
               );
             })}
           </div>

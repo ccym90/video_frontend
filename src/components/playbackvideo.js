@@ -15,8 +15,8 @@ class Playback extends Component {
         controls
         ref='playbackVideo'
         src={this.props.preview.preview}
-        controls={true}
         style={{width: 320, height: 240}}
+        controls
         />
       </div>
     )
