@@ -93,8 +93,6 @@ class Librarypage extends Component {
           <div className="filteredlibrary">
           {this.state.filtered.map(function(filtered) {
             return(
-<<<<<<< HEAD
-
               <div className="row">
                   <div className="col-xs-6 col-md-6">
                   <div className="thumbnail" responsive>
@@ -110,23 +108,6 @@ class Librarypage extends Component {
                       </div>
                   </div>
                 </div>
-=======
-              <div className="filter">
-              <h3>Search Results</h3>
-              <Thumbnail>
-              <Player
-              playsInline
-              poster="/assets/poster.png"
-              src={filtered.path}
-              />
-              <h4>Title: </h4>
-              <h4> {filtered.title}</h4>
-              <p>Author: {filtered.author}</p>
-              <p>Subject: {filtered.topics}</p>
-              <p>Description: {filtered.description}</p>
-              </Thumbnail>
-              <hr/>
->>>>>>> 91e5cedfacedace63b327148fa83b93d7daa32b9
               </div>
 
 
@@ -141,22 +122,20 @@ class Librarypage extends Component {
           <div>
             {this.state.library.map(function(library) {
               return(
-<<<<<<< HEAD
                 <div src={library.path} alt="242x200" >
                 <video controls src={library.path}/>
-=======
                 <Thumbnail>
                 <Player
                   playsInline
                   poster="/assets/poster.png"
                   src="{libaray.path}"
                 />
->>>>>>> 91e5cedfacedace63b327148fa83b93d7daa32b9
                 <h4>Title:</h4>
                 <h4> {library.title}</h4>
                 <p>Author: {library.author}</p>
                 <p>Subject: {library.topics}</p>
                 <p>Description: {library.description}</p>
+                </Thumbnail>
                 </div>
               );
             })}
