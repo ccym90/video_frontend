@@ -2,9 +2,10 @@
   margin: 0 auto 0 auto;
   max-width: 60em;
   padding: 1em 1.5em 1.3em 1.5em;
+
 }
 
-.videorow {
+.videorow .instructions .buttonrow {
   padding: 60px;
   height: 80px
 }
@@ -44,6 +45,13 @@ video:last-of-type {
  float: left;
 }
 
+.webcam {
+float: left;
+}
+
+.playback {
+  float: right;
+}
 
 @media screen and (max-width: 500px) {
  button {

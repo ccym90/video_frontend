@@ -153,11 +153,9 @@ class Buttons extends React.Component {
 
       </ButtonToolbar>
       </Col>
-
       <br/>
-      <hr/>
-
       <Row className="formrow">
+      <hr/>
       <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
         <div className="form-group">
           <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
