@@ -5,6 +5,26 @@ import './loginpage.css';
 
 class LoginPage extends Component {
 
+  constructor(props) {
+    super(props);
+      this.state = {
+        username: '',
+        password: ''
+      };
+  }
+
+  //   // This will be called when the user clicks on the login button
+  // login(e) {
+  //   e.preventDefault();
+  //   // Here, we call an external AuthService. We’ll create it in the next step
+  //   Auth.login(this.state.user, this.state.password)
+  //     .catch(function(err) {
+  //       console.log('Error logging in', err);
+  //     });
+  // }
+
+
+
 
   render() {
 

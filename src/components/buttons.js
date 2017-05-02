@@ -78,6 +78,7 @@ class Buttons extends React.Component {
     let id = e.target.id;
     let value = e.target.value;
     let newState = this.state;
+    console.log('what is the new state', newState)
 
     switch (id) {
       case "title":
@@ -108,7 +109,6 @@ class Buttons extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     let buffer = this.state.recordVideo.blob;
     let url = window.URL.createObjectURL(buffer)
     console.log('blob url',url);
@@ -120,7 +120,7 @@ class Buttons extends React.Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', buffer, 'video.webm');
-    data.append('uuid', this.state.uuid, 'video.webm')
+    data.append('uuid', url, 'video.webm')
 
 
 
