@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "bootstrap": "^3.3.7",
+    "bootstrap-sweetalert": "^1.0.1",
     "multer": "^1.3.0",
     "passport-local": "^1.0.0",
     "react": "^15.5.4",
@@ -17,7 +18,11 @@
     "react-tooltip-component": "^0.3.0",
     "recordrtc": "^5.4.1",
     "redux": "^3.6.0",
+<<<<<<< HEAD
+    "sweetalert2": "^6.6.2",
+=======
     "uuid": "^3.0.1",
+>>>>>>> 87656358025714be4ef94a78364576366acb3a10
     "video-react": "^0.8.3"
   },
   "devDependencies": {

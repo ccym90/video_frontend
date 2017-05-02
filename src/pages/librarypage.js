@@ -39,8 +39,10 @@ class Librarypage extends Component {
   }
 
   componentWillUnmount() {
-      this.unmounted = true;
-    }
+
+    this.unmounted = true;
+  }
+
 
   handleClick = (e) => {
     e.preventDefault();
@@ -52,16 +54,17 @@ class Librarypage extends Component {
       this.setState({
         filtered: search
       })
-        if (search.length === 0) {
-          // this.state.resultsFound =
-          this.readMe.innerHTML = "Sorry we didn't find any relevant videos to your search"
-            // this.refs.readMe.getInputDOMNode().innerHTML = "Sorry nothing found";
-        } else {
-          this.readMe.innerHTML = "Search results"
-        }
+
+    if (search.length === 0) {
+
+    this.readMe.innerHTML = "Sorry we didn't find any relevant videos to your search"
+    } else {
+    this.readMe.innerHTML = "Search results"
+    }
       console.log('it worked the response data', response.data); // ex.: { user: 'Your User'}
       console.log('it worked the response status', response.status);
-      console.log('filtered state', this.state.filtered) // ex.: 200
+      console.log('filtered state', this.state.filtered)
+
     })
     .catch(function (error) {
       console.log(error);

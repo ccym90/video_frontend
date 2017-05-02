@@ -132,6 +132,14 @@ class Buttons extends React.Component {
            .catch(function (err) {
              console.log(err);
            });
+
+    this.title.value = '';
+    this.author.value = '';
+    this.subject.value = '';
+    this.description.value = '';
+
+
+
   };
 
   render() {
@@ -168,6 +176,7 @@ class Buttons extends React.Component {
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
                     <div className="col-sm-10">
                       <input type="text"
+                             ref={(el) => this.title = el}
                              className="form-control"
                              id="title"
                              placeholder="e.g. Addition & Subtraction"
@@ -178,6 +187,7 @@ class Buttons extends React.Component {
                   <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
                   <div className="col-sm-10">
                     <input type="text"
+                           ref={(el) => this.author = el}
                            className="form-control"
                            id="author"
                            placeholder="e.g. Joe Bloggs"
@@ -188,6 +198,7 @@ class Buttons extends React.Component {
                   <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
                   <div className="col-sm-10">
                     <input type="text"
+                           ref={(el) => this.subject = el}
                            className="form-control"
                            id="subject"
                            placeholder="e.g. Math"
@@ -198,6 +209,7 @@ class Buttons extends React.Component {
                   <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
                   <div className="col-sm-10">
                     <input type="text"
+                           ref={(el) => this.description = el}
                            className="form-control"
                            id="description"
                            placeholder="e.g. How to add and subtract with positive and negative numbers"
