@@ -6,6 +6,9 @@ import Header from '../components/header';
 import './uploadPage.css';
 import axios from 'axios';
 
+// const swal = require('sweetalert2')
+
+
 class uploadPage extends Component {
 
   constructor(props) {
@@ -19,6 +22,7 @@ class uploadPage extends Component {
       file: ""
     };
   }
+
 
   onChange = (e) => {
 
@@ -64,11 +68,19 @@ class uploadPage extends Component {
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
+             alert('Congrats, your video has been uploaded');
            })
            .catch(function (err) {
              console.log(err);
+             alert('Sorry, please fill out all the form');
            });
-    this.setState({value: ''});
+
+    this.title.value = '';
+    this.author.value = '';
+    this.subject.value = '';
+    this.description.value = '';
+    this.file.value = null;
+
   };
 
   render() {
@@ -90,7 +102,7 @@ class uploadPage extends Component {
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
                   <div className="col-sm-10">
                     <input type="text"
-                           value={this.state.value}
+                           ref={(el) => this.title = el}
                            className="form-control"
                            id="title"
                            placeholder="e.g. Addition & Subtraction"
@@ -101,7 +113,7 @@ class uploadPage extends Component {
                   <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
                   <div className="col-sm-10">
                     <input type="text"
-                           value={this.state.value}
+                           ref={(el) => this.author = el}
                            className="form-control"
                            id="author"
                            placeholder="e.g. Joe Bloggs"
@@ -112,7 +124,7 @@ class uploadPage extends Component {
                 <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
                 <div className="col-sm-10">
                   <input type="text"
-                         value={this.state.value}
+                         ref={(el) => this.subject = el}
                          className="form-control"
                          id="subject"
                          placeholder="e.g. Math"
@@ -123,7 +135,7 @@ class uploadPage extends Component {
                 <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
                 <div className="col-sm-10">
                   <input type="text"
-                         value={this.state.value}
+                         ref={(el) => this.description = el}
                          className="form-control"
                          id="description"
                          placeholder="e.g. How to add and subtract with positive and negative numbers"
@@ -136,7 +148,7 @@ class uploadPage extends Component {
                 <div className="col-sm-10">
                     <label htmlFor="file"> </label>
                     <input name='file'
-                           value={this.state.value}
+                           ref={(el) => this.file = el}
                            type="file"
                            id="file"
                            onChange={ (e) => this.onChange(e) }/>
