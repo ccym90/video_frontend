@@ -6,6 +6,7 @@ import Header from '../components/header';
 import './uploadPage.css';
 import axios from 'axios';
 
+
 class uploadPage extends Component {
 
   constructor(props) {
@@ -17,6 +18,7 @@ class uploadPage extends Component {
       subject: "",
       description: "",
       file: "",
+      uuid: "",
     };
   }
 
@@ -43,6 +45,9 @@ class uploadPage extends Component {
       case "file":
         newState.file = e.target.files[0]
         break;
+      case "uuid":
+        newState.file = value
+        break;
       default:
         console.log('Input ' + id + 'not found');
     }
@@ -59,7 +64,7 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-
+    data.append('uuid', this.state.uuid)
 
     const config = {  };
     axios.post('/upload', data, config)

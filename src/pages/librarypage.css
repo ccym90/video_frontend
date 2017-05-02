@@ -40,7 +40,7 @@
 #videoStyle {
   float: right;
   left: 108px;
-top: 0;
+	top: 0;
 
 }
 
@@ -67,9 +67,9 @@ top: 0;
   margin: 0 auto 0 auto;
   max-width: 60em;
   padding: 1em 1.5em 1.3em 1.5em;
-
-  border-style: solid;
+  border-style: inherit; 
   border-color: rgba(246, 211, 151, 0.4);
+	background-color: rgba(246, 211, 151, 0.4);
 }
 
 .searchbar {

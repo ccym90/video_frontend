@@ -23,7 +23,8 @@ class Buttons extends React.Component {
       author: "",
       subject: "",
       description: "",
-      file: ""
+      file: "",
+      uuid: ""
     };
   }
 
@@ -91,6 +92,9 @@ class Buttons extends React.Component {
       case "description":
         newState.description = value
         break;
+      case "uuid":
+        newState.description = value
+        break;
 
       default:
         console.log('Input ' + id + 'not found');
@@ -116,6 +120,7 @@ class Buttons extends React.Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', buffer, 'video.webm');
+    data.append('uuid', this.state.uuid, 'video.webm')
 
 
 

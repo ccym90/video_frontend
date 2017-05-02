@@ -3,6 +3,7 @@ import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../components/header';
 import './librarypage.css';
 import axios from 'axios';
+import uuid from 'uuid';
 // import { Player } from 'video-react';
 const SweetAlert = require('react-bootstrap-sweetalert');
 
@@ -18,7 +19,7 @@ class Librarypage extends Component {
     }
   }
 
-    componentDidMount() {
+  componentDidMount() {
     let _this = this;
     axios.get('/all')
     .then(function(response){
@@ -27,7 +28,6 @@ class Librarypage extends Component {
       _this.setState({
         library: arr
       });
-      console.log('state', _this.state);
       console.log("response data", arr);
       console.log('library it worked', response.status); // ex: 200
     })
@@ -39,47 +39,34 @@ class Librarypage extends Component {
   }
 
   componentWillUnmount() {
-    this.unmounted = true;
-  }
-
+      this.unmounted = true;
+    }
 
   handleClick = (e) => {
     e.preventDefault();
-
     let data = {}
     data.searchbar = this.refs.searchbar.value;
     axios.get('/search/' + data.searchbar)
     .then((response) => {
-
-
       let search = response.data;
       this.setState({
         filtered: search
       })
-
-
         if (search.length === 0) {
           // this.state.resultsFound =
           this.readMe.innerHTML = "Sorry we didn't find any relevant videos to your search"
-
             // this.refs.readMe.getInputDOMNode().innerHTML = "Sorry nothing found";
-
         } else {
           this.readMe.innerHTML = "Search results"
         }
-
-
       console.log('it worked the response data', response.data); // ex.: { user: 'Your User'}
       console.log('it worked the response status', response.status);
-      console.log('filtered state', this.state.filtered)
-
-      // ex.: 200
+      console.log('filtered state', this.state.filtered) // ex.: 200
     })
     .catch(function (error) {
       console.log(error);
       console.log('error getting video', error.status);
     });
-
   }
 
   render() {
@@ -89,7 +76,6 @@ class Librarypage extends Component {
           <div>
           {this.state.filtered.map(function(filtered) {
             return(
-
               <div className="row" >
                 <div className="col-xs-6 col-md-6" id='card'>
                   <div>
@@ -103,19 +89,15 @@ class Librarypage extends Component {
                       </div>
                   </div>
                 </div>
-
                 <div className="col-xs-6 col-md-6" id='card'>
                   <video  controls='true' src={filtered.path}/>
                 </div>
               </div>
-
-
             );
           })}
           </div>
         )
       }
-
 
       let renderLibrary = () => {
         return(
@@ -123,7 +105,6 @@ class Librarypage extends Component {
 
             {this.state.library.map(function(library) {
               return(
-
                 <div className="row" >
                   <div className="col-xs-6 col-md-6" id='card'>
                     <div>
@@ -137,18 +118,15 @@ class Librarypage extends Component {
                         </div>
                     </div>
                   </div>
-
                   <div className="col-xs-6 col-md-6" id='card'>
                     <video  controls='true' src={library.path}/>
                   </div>
                 </div>
-
               );
             })}
           </div>
         )
       }
-      // <Button bsStyle="default" block onClick={this.play}>Play</Button>
 
     return (
       <div className="container">
@@ -159,55 +137,46 @@ class Librarypage extends Component {
             <h1>Video Library</h1>
             <hr/>
             <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
-              <Row className="search">
-
-              <br/>
-              <hr/>
-
+            <Row className="search">
+            <br/>
             <Row className="filteredlibrary">
             <div className="col-sm-12">
-
-              <div id="custom-search-input">
-                <div className="input-group col-md-12">
-                  <input 	ref="searchbar"
+            <div id="custom-search-input">
+            <div className="input-group col-md-12">
+            <input 	ref="searchbar"
                           type="text"
                           className="form-control input-lg"
                           id="noShow"
                           placeholder="Search Library..."/>
-                    <span className="input-group-btn">
-                      <button type="button"
-                              className="btn btn-danger deleteButton"
-                              onClick={this.handleClick}>
-                        <span className="glyphicon glyphicon-search" aria-hidden="true" />
-                      </button>
-                    </span>
-
-                </div>
-              </div>
-
-          </div>
-
-          <br/>
-          <hr/>
-          <br/>
-
-
-              <h3 ref={(el) => this.readMe = el}  dangerouslySetInnerHTML={{ __html: "" }}></h3>
-                <div>
-                {filterLibrary()}
-                </div>
+            <span className="input-group-btn">
+            <button type="button"
+                      className="btn btn-danger deleteButton"
+                      onClick={this.handleClick}>
+            <span className="glyphicon glyphicon-search" aria-hidden="true" />
+            </button>
+            </span>
+            </div>
+            </div>
+            </div>
+            <br/>
+            <hr/>
+            <br/>
+            <h3 ref={(el) => this.readMe = el}  dangerouslySetInnerHTML={{ __html: "" }}></h3>
+            <div>
+            {filterLibrary()}
+            </div>
             </Row>
-
             </Row>
-
+            <br/>
+            <hr/>
             <Row className="libraryResults">
-              <h3>Library</h3>
+              <h2><strong>Library</strong></h2>
+              <br/>
                 <div>
                 {renderLibrary()}
                 </div>
             </Row>
-
-              <hr/>
+            <hr/>
           </Row>
           </Grid>
       </div>
