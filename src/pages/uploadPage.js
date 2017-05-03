@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Row } from 'react-bootstrap';
-// import { FormGroup, ControlLabel } from 'react-bootstrap';
-// import Tooltip from 'react-tooltip-component';
 import Header from '../components/header';
 import './uploadPage.css';
 import axios from 'axios';
-
-
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 class uploadPage extends Component {
 
@@ -22,7 +19,6 @@ class uploadPage extends Component {
       uuid: "",
     };
   }
-
 
   onChange = (e) => {
 
@@ -47,7 +43,7 @@ class uploadPage extends Component {
         newState.file = e.target.files[0]
         break;
       case "uuid":
-        newState.file = value
+        newState.uuid = value
         break;
       default:
         console.log('Input ' + id + 'not found');
@@ -65,7 +61,7 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-    data.append('uuid', this.state.uuid)
+    data.append('uuid', this.state.uuid, 'video.webm')
 
     const config = {  };
     axios.post('/upload', data, config)
@@ -78,11 +74,11 @@ class uploadPage extends Component {
              alert('Sorry, please fill out all the form');
            });
 
-    this.title.value = '';
-    this.author.value = '';
-    this.subject.value = '';
-    this.description.value = '';
-    this.file.value = null;
+    // this.title.value = '';
+    // this.author.value = '';
+    // this.subject.value = '';
+    // this.description.value = '';
+    // this.file.value = '';
 
   };
 
@@ -90,6 +86,16 @@ class uploadPage extends Component {
     return (
 
       <div className="Container">
+      <div>
+      {this.state.alert ? <SweetAlert
+      input="0000"
+      required
+      inputType="password"
+      title="Enter Password"
+      validationMsg="You must enter your password!"
+      onConfirm={() => this.hideAlert()}
+      /> : null}
+      </div>
       <div className="uploadpage">
         <Header />
           <br/>

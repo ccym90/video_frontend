@@ -5,15 +5,15 @@ import './loginpage.css';
 
 class LoginPage extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //     this.state = {
-  //       username: '',
-  //       password: ''
-  //     };
-  // }
-  //
-  // //   // This will be called when the user clicks on the login button
+  constructor(props) {
+    super(props);
+      this.state = {
+        username: '',
+        password: ''
+      };
+  }
+
+  //   // This will be called when the user clicks on the login button
   // login(e) {
   //   e.preventDefault();
   //   // Here, we call an external AuthService. We’ll create it in the next step
@@ -22,7 +22,6 @@ class LoginPage extends Component {
   //       console.log('Error logging in', err);
   //     });
   // }
-
 
 
 
@@ -48,7 +47,7 @@ class LoginPage extends Component {
                       <br/>
                       <div className="wrapper">
                       <span class="group-btn">
-                          <a href="#" class="btn btn-primary btn-md">Login</a>
+                          <a href="#" class="btn btn-primary btn-md">Login <i class="fa fa-sign-in"></i></a>
                       </span>
                       </div>
                       </div>

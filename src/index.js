@@ -24,16 +24,14 @@ const NoMatch = ({ location }) => (
   </div>
 )
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Librarypage} />
+        <Route exact path="/Login" component={LoginPage} />
         <Route exact path="/Record" component={RecordPage} />
         <Route exact path="/Upload" component={uploadPage} />
-        <Route exact path="/Login" component={LoginPage} />
+        <Route exact path="/" component={Librarypage} />
         <Route component={NoMatch}/>
       </Switch>
     </Router>

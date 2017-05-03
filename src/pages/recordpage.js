@@ -6,12 +6,40 @@ import Userform from '../components/form';
 import Buttons from '../components/buttons';
 import Header from '../components/header';
 import './recordpage.css';
+import SweetAlert from 'react-bootstrap-sweetalert';
 
+window.React = React;
+window.SweetAlert = SweetAlert;
 
 class Recordpage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      alert: true
+    };
+  }
+
+  hideAlert() {
+    console.log('Hiding alert...');
+    this.setState({
+      alert: null
+    });
+  }
+
   render() {
     return (
       <div className="container">
+      <div>
+      {this.state.alert ? <SweetAlert
+      input="0000"
+      required
+      inputType="password"
+      title="Enter Password"
+      validationMsg="You must enter your password!"
+      onConfirm={() => this.hideAlert()}
+      /> : null}
+      </div>
       <br/>
       <div className="recordpage">
         <Header />
