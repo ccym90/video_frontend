@@ -6,6 +6,7 @@ import Buttons from '../components/buttons';
 import Header from '../components/header';
 import './recordpage.css';
 import SweetAlert from 'react-bootstrap-sweetalert';
+import swal from 'sweetalert';
 
 window.React = React;
 window.SweetAlert = SweetAlert;

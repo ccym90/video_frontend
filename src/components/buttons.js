@@ -130,7 +130,9 @@ class Buttons extends React.Component {
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
+
               alert('Congrats, your video has been saved! Make another one? ;)')
+
               }
            )
            .catch(function (err) {
