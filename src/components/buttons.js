@@ -13,7 +13,6 @@ window.SweetAlert = SweetAlert;
 
 class Buttons extends React.Component {
 
-
   constructor(props) {
     super(props);
 
@@ -28,7 +27,6 @@ class Buttons extends React.Component {
       subject: "",
       description: "",
       file: "",
-      uuid: "",
       alert: null
     };
   }
@@ -130,10 +128,11 @@ class Buttons extends React.Component {
 
 
     const config = {  };
+    var self = this;
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
-              this.saveSweetalert();
+              self.saveSweetalert();
               }
            )
            .catch(function (err) {
@@ -146,15 +145,20 @@ class Buttons extends React.Component {
     this.description.value = '';
   };
 
+  hideAlert() {
+        this.setState({
+          alert: null
+        });
+  }
 
 
   render() {
 
-    let saveSweetalert = () => {
+    let saveSweetalert = (e) => {
       return(
-      <SweetAlert success title="Your Video has been Saved!" onConfirm={this.hideAlert}>
-      You clicked the button!
-      </SweetAlert>
+        <SweetAlert success title="Good job!" onConfirm={this.onConfirm}>
+        You clicked the button!
+        </SweetAlert>
     )};
 
 

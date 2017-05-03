@@ -99,6 +99,7 @@ class uploadPage extends Component {
             {this.hideAlert()}
             console.log('the password');
           } else {
+            {{this.validationMsg="You must enter your password!"}}
             console.log(inputValue);
         }}}
         />
