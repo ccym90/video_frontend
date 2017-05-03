@@ -24,10 +24,11 @@ class Buttons extends React.Component {
       downloaded: false,
       title: "",
       author: "",
-      subject: "",
+      subject: [],
       description: "",
       file: "",
       alert: null
+
     };
   }
 
@@ -96,9 +97,6 @@ class Buttons extends React.Component {
       case "description":
         newState.description = value
         break;
-      case "uuid":
-        newState.description = value
-        break;
 
       default:
         console.log('Input ' + id + 'not found');
@@ -123,7 +121,7 @@ class Buttons extends React.Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', buffer, 'video.webm');
-    data.append('uuid', url, 'video.webm')
+    // data.append('uuid', url, 'video.webm')
 
 
 
@@ -137,6 +135,7 @@ class Buttons extends React.Component {
            )
            .catch(function (err) {
              console.log(err);
+             alert('Error, please try aggin');
            });
 
     this.title.value = '';
@@ -151,7 +150,6 @@ class Buttons extends React.Component {
         });
   }
 
-
   render() {
 
     let saveSweetalert = (e) => {
@@ -160,7 +158,6 @@ class Buttons extends React.Component {
         You clicked the button!
         </SweetAlert>
     )};
-
 
     return (
       <div>

@@ -94,6 +94,34 @@ export var savingReducer = (state = '', action) => {
   }
 };
 
+
+export default (state = null, action) => {
+  switch (action.type) {
+  case 'LOGGIN_REQUEST':
+    return  {
+      isAuthenticated: false
+    }
+    break;
+  case 'LOGGED_CORRECT':
+    return {
+      isAuthenticated: true
+    }
+    break;
+  case 'LOGIN_FAILURE':
+    return {
+      isAuthenticated: false
+    }
+  default:
+    return state;
+
+  }
+}
+
+
+
+
+
+
 // export var libraryReducer = (state = initialState.library, action) => {
 //   switch (action.type) {
 //     case 'LIBRARY':

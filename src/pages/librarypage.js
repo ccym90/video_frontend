@@ -3,9 +3,9 @@ import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../components/header';
 import './librarypage.css';
 import axios from 'axios';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 // import { Player } from 'video-react';
-const SweetAlert = require('react-bootstrap-sweetalert');
+// const SweetAlert = require('react-bootstrap-sweetalert');
 
 class Librarypage extends Component {
 
@@ -14,18 +14,16 @@ class Librarypage extends Component {
 
     this.state = {
       library: [],
-      filtered: [],
-      resultsFound: []
+      filtered: []
     }
   }
 
   componentDidMount() {
-    let _this = this;
     axios.get('/all')
-    .then(function(response){
+    .then((response) => {
       let arr = response.data;
       console.log('arr', arr);
-      _this.setState({
+      this.setState({
         library: arr
       });
       console.log("response data", arr);
@@ -36,11 +34,6 @@ class Librarypage extends Component {
       console.log('error getting library', error.status);
     });
 
-  }
-
-  componentWillUnmount() {
-
-    this.unmounted = true;
   }
 
 
@@ -102,6 +95,8 @@ class Librarypage extends Component {
         )
       }
 
+
+
       let renderLibrary = () => {
         return(
           <div>
@@ -149,7 +144,8 @@ class Librarypage extends Component {
                           type="text"
                           className="form-control input-lg"
                           id="noShow"
-                          placeholder="Search Library..."/>
+                          placeholder="Search Library..."
+                          />
             <span className="input-group-btn">
             <button type="button"
                       className="btn btn-danger deleteButton"

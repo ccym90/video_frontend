@@ -21,13 +21,13 @@ class Header extends Component {
       <Navbar fixedTop fluid inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Video Uploader</a>
+            <a href="#"><Link to='/'>Video Uploader</Link></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="#"><Link to='/'>Library</Link></NavItem>
+            <NavItem eventKey={1} href="#"><Link to='/Library'>Library</Link></NavItem>
             <NavItem eventKey={2} href="#"><Link to='/Record'>Record</Link></NavItem>
             <NavItem eventKey={2} href="#"><Link to='/Upload'>Upload</Link></NavItem>
           </Nav>

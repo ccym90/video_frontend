@@ -12,6 +12,7 @@ import RecordPage from './pages/recordpage';
 import Librarypage from './pages/librarypage';
 import uploadPage from './pages/uploadPage';
 import LoginPage from './pages/loginpage';
+import homePage from './pages/homepageIndexByTag'
 import { Provider } from 'react-redux';
 import {Link } from 'react-router-dom';
 
@@ -28,7 +29,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/Login" component={LoginPage} />
+        <Route exact path="/" component={homePage} />
+        <Route exact path="/Library" component={Librarypage} />
         <Route exact path="/Record" component={RecordPage} />
         <Route exact path="/Upload" component={uploadPage} />
         <Route exact path="/" component={Librarypage} />
