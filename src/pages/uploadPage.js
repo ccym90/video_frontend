@@ -80,31 +80,29 @@ class uploadPage extends Component {
     this.setState({
       alert: null
     });
-    console.log("sweet alert", alert)
-    console.log("sweet alert", SweetAlert.props.input)
   }
 
-
-  // auth() {
-  //   if (inputValue === "solarleap") {
-  //
-  //   } return (console.log('password correct'));
-  // }
   render() {
     return (
 
       <div className="Container">
-      <SweetAlert
-      title="Enter Password"
-      text="SweetAlert in React"
-      type="input"
-      inputType="password"
-      inputPlaceholder="password"
-      validationMsg="You must enter your password!"
-      onConfirm={ inputValue => {
-        console.log(inputValue); // eslint-disable-line no-console
-        this.setState({ alert: false });
-      }}
+      {this.state.alert &&
+        <SweetAlert
+        input
+        required
+        inputType="password"
+        title="Enter Password"
+        validationMsg="You must enter your password!"
+        onConfirm={ inputValue => {
+          let passwordkey = "solarleap"
+          if (inputValue === passwordkey){
+            {this.hideAlert()}
+            console.log('the password');
+          } else {
+            console.log(inputValue);
+        }}}
+        />
+      }
       />
       <div className="uploadpage">
         <Header />

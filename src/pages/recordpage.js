@@ -37,13 +37,13 @@ class Recordpage extends Component {
         required
         inputType="password"
         title="Enter Password"
+        validationMsg="You must enter your password!"
         onConfirm={ inputValue => {
           let passwordkey = "solarleap"
           if (inputValue === passwordkey){
             {this.hideAlert()}
             console.log('the password');
           } else {
-            {this.validationMsg="You must enter your password!"}
             console.log(inputValue);
         }}}
         />
