@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Webcam from '../components/webcam';
 import Playback from '../components/playbackvideo';
-import Userform from '../components/form';
 import Buttons from '../components/buttons';
 import Header from '../components/header';
 import './recordpage.css';
@@ -21,25 +20,35 @@ class Recordpage extends Component {
   }
 
   hideAlert() {
-    console.log('Hiding alert...');
-    this.setState({
-      alert: null
-    });
+        this.setState({
+          alert: null
+        });
   }
 
   render() {
+    console.log("sweet alert", SweetAlert)
+
     return (
       <div className="container">
       <div>
-      {this.state.alert ? <SweetAlert
-      input="0000"
-      required
-      inputType="password"
-      title="Enter Password"
-      validationMsg="You must enter your password!"
-      onConfirm={() => this.hideAlert()}
-      /> : null}
-      </div>
+      {this.state.alert &&
+        <SweetAlert
+        input
+        required
+        inputType="password"
+        title="Enter Password"
+        onConfirm={ inputValue => {
+          let passwordkey = "solarleap"
+          if (inputValue === passwordkey){
+            {this.hideAlert()}
+            console.log('the password');
+          } else {
+            {this.validationMsg="You must enter your password!"}
+            console.log(inputValue);
+        }}}
+        />
+      }
+  </div>
       <br/>
       <div className="recordpage">
         <Header />

@@ -17,6 +17,7 @@ class uploadPage extends Component {
       description: "",
       file: "",
       uuid: "",
+      alert: true
     };
   }
 
@@ -74,28 +75,37 @@ class uploadPage extends Component {
              alert('Sorry, please fill out all the form');
            });
 
-    // this.title.value = '';
-    // this.author.value = '';
-    // this.subject.value = '';
-    // this.description.value = '';
-    // this.file.value = '';
-
   };
+  hideAlert() {
+    this.setState({
+      alert: null
+    });
+    console.log("sweet alert", alert)
+    console.log("sweet alert", SweetAlert.props.input)
+  }
 
+
+  // auth() {
+  //   if (inputValue === "solarleap") {
+  //
+  //   } return (console.log('password correct'));
+  // }
   render() {
     return (
 
       <div className="Container">
-      <div>
-      {this.state.alert ? <SweetAlert
-      input="0000"
-      required
-      inputType="password"
+      <SweetAlert
       title="Enter Password"
+      text="SweetAlert in React"
+      type="input"
+      inputType="password"
+      inputPlaceholder="password"
       validationMsg="You must enter your password!"
-      onConfirm={() => this.hideAlert()}
-      /> : null}
-      </div>
+      onConfirm={ inputValue => {
+        console.log(inputValue); // eslint-disable-line no-console
+        this.setState({ alert: false });
+      }}
+      />
       <div className="uploadpage">
         <Header />
           <br/>
