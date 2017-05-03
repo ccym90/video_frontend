@@ -2,16 +2,53 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Webcam from '../components/webcam';
 import Playback from '../components/playbackvideo';
-import Userform from '../components/form';
 import Buttons from '../components/buttons';
 import Header from '../components/header';
 import './recordpage.css';
+import SweetAlert from 'react-bootstrap-sweetalert';
 
+window.React = React;
+window.SweetAlert = SweetAlert;
 
 class Recordpage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      alert: true
+    };
+  }
+
+  hideAlert() {
+        this.setState({
+          alert: null
+        });
+  }
+
   render() {
+    console.log("sweet alert", SweetAlert)
+
     return (
       <div className="container">
+      <div>
+      {this.state.alert &&
+        <SweetAlert
+        input
+        required
+        inputType="password"
+        title="Enter Password"
+        validationMsg="You must enter your password!"
+        onConfirm={ inputValue => {
+          let passwordkey = "solarleap"
+          if (inputValue === passwordkey){
+            {this.hideAlert()}
+            console.log('the password');
+          } else {
+            console.log(inputValue);
+        }}}
+        />
+      }
+  </div>
       <br/>
       <div className="recordpage">
         <Header />

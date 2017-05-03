@@ -25,8 +25,6 @@ const NoMatch = ({ location }) => (
   </div>
 )
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -35,7 +33,7 @@ ReactDOM.render(
         <Route exact path="/Library" component={Librarypage} />
         <Route exact path="/Record" component={RecordPage} />
         <Route exact path="/Upload" component={uploadPage} />
-        <Route exact path="/Login" component={LoginPage} />
+        <Route exact path="/" component={Librarypage} />
         <Route component={NoMatch}/>
       </Switch>
     </Router>

@@ -100,7 +100,6 @@ class Librarypage extends Component {
       let renderLibrary = () => {
         return(
           <div>
-
             {this.state.library.map(function(library) {
               return(
                 <div className="row" >

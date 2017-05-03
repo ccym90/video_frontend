@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Row } from 'react-bootstrap';
-// import { FormGroup, ControlLabel } from 'react-bootstrap';
-// import Tooltip from 'react-tooltip-component';
 import Header from '../components/header';
 import './uploadPage.css';
 import axios from 'axios';
-
-
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 class uploadPage extends Component {
 
@@ -20,9 +17,9 @@ class uploadPage extends Component {
       description: "",
       file: "",
       uuid: "",
+      alert: true
     };
   }
-
 
   onChange = (e) => {
 
@@ -47,7 +44,7 @@ class uploadPage extends Component {
         newState.file = e.target.files[0]
         break;
       case "uuid":
-        newState.file = value
+        newState.uuid = value
         break;
       default:
         console.log('Input ' + id + 'not found');
@@ -65,7 +62,7 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-    data.append('uuid', this.state.uuid)
+    data.append('uuid', this.state.uuid, 'video.webm')
 
     const config = {  };
     axios.post('/upload', data, config)
@@ -78,18 +75,35 @@ class uploadPage extends Component {
              alert('Sorry, please fill out all the form');
            });
 
-    this.title.value = '';
-    this.author.value = '';
-    this.subject.value = '';
-    this.description.value = '';
-    this.file.value = null;
-
   };
+  hideAlert() {
+    this.setState({
+      alert: null
+    });
+  }
 
   render() {
     return (
 
       <div className="Container">
+      {this.state.alert &&
+        <SweetAlert
+        input
+        required
+        inputType="password"
+        title="Enter Password"
+        validationMsg="You must enter your password!"
+        onConfirm={ inputValue => {
+          let passwordkey = "solarleap"
+          if (inputValue === passwordkey){
+            {this.hideAlert()}
+            console.log('the password');
+          } else {
+            console.log(inputValue);
+        }}}
+        />
+      }
+      />
       <div className="uploadpage">
         <Header />
           <br/>

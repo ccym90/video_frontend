@@ -6,6 +6,10 @@ import { captureUserMedia } from '../App.js';
 import RecordRTC from 'recordrtc';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import SweetAlert from 'react-bootstrap-sweetalert';
+
+window.React = React;
+window.SweetAlert = SweetAlert;
 
 class Buttons extends React.Component {
 
@@ -23,7 +27,9 @@ class Buttons extends React.Component {
       author: "",
       subject: [],
       description: "",
-      file: ""
+      file: "",
+      alert: null
+
     };
   }
 
@@ -124,8 +130,14 @@ class Buttons extends React.Component {
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
+<<<<<<< HEAD
               alert('Congrats, your video has been saved! Make another one? ;)');
            })
+=======
+              this.saveSweetalert();
+              }
+           )
+>>>>>>> 1b6ecdbb4bbc4569c08fea175f9253da646f7957
            .catch(function (err) {
              console.log(err);
              alert('Error, please try aggin');
@@ -135,12 +147,20 @@ class Buttons extends React.Component {
     this.author.value = '';
     this.subject.value = '';
     this.description.value = '';
-
-
-
   };
 
+
+
   render() {
+
+    let saveSweetalert = () => {
+      return(
+      <SweetAlert success title="Your Video has been Saved!" onConfirm={this.hideAlert}>
+      You clicked the button!
+      </SweetAlert>
+    )};
+
+
     return (
       <div>
         <div className="buttons">
