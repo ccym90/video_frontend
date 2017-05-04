@@ -4,7 +4,8 @@ import Webcam from '../../components/webcam';
 import Playback from '../../components/playbackvideo';
 import Buttons from '../../components/buttons';
 import Header from '../../components/header';
-import FooterRecord from './footerrecord';
+// import FooterRecord from './footerrecord';
+import Footerpanel from '../../components/footer';
 import './recordpage.css';
 import SweetAlert from 'react-bootstrap-sweetalert';
 
@@ -30,7 +31,7 @@ class Recordpage extends Component {
     console.log("sweet alert", SweetAlert)
 
     return (
-      <div className="container">
+      <div className="Container">
       <div>
       {this.state.alert &&
         <SweetAlert
@@ -79,10 +80,12 @@ class Recordpage extends Component {
               <Row className='buttonrow'>
                 <Buttons />
               </Row>
+              <hr/>
               <br/>
             </Grid>
-            <FooterRecord />
+
         </div>
+      <Footerpanel />
       </div>
     )
   }

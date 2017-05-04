@@ -3,6 +3,7 @@ import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../../components/header';
 import './librarypage.css';
 import axios from 'axios';
+
 // import uuid from 'uuid';
 // import { Player } from 'video-react';
 // const SweetAlert = require('react-bootstrap-sweetalert');
@@ -67,6 +68,7 @@ class Librarypage extends Component {
 
   render() {
 
+
       let filterLibrary = () => {
         return(
           <div>
@@ -94,8 +96,6 @@ class Librarypage extends Component {
           </div>
         )
       }
-
-
 
       let renderLibrary = () => {
         return(
@@ -126,7 +126,8 @@ class Librarypage extends Component {
       }
 
     return (
-      <div className="container">
+      <div className="Container">
+
       <div className="librarypage">
         <Header />
           <Grid>
@@ -178,6 +179,7 @@ class Librarypage extends Component {
           </Row>
           </Grid>
       </div>
+
       </div>
     );
   }

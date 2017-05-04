@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Footerpanel from '../../components/footer';
 
 import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../../components/header';
@@ -169,7 +170,7 @@ class homePage extends Component {
 
   return (
 
-    <div className="container">
+    <div className="Container">
       <div className="librarypage">
         <Header />
           <Grid>
@@ -187,7 +188,10 @@ class homePage extends Component {
                   </div>
 
           </Grid>
+          <hr/>
+          <br/>
       </div>
+            <Footerpanel />
     </div>
 
     );
