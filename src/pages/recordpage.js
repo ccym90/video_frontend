@@ -4,9 +4,11 @@ import Webcam from '../components/webcam';
 import Playback from '../components/playbackvideo';
 import Buttons from '../components/buttons';
 import Header from '../components/header';
+import Footerpanel from '../components/footer';
 import './recordpage.css';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import swal from 'sweetalert';
+
 
 window.React = React;
 window.SweetAlert = SweetAlert;
@@ -40,7 +42,7 @@ class Recordpage extends Component {
         title="Enter Password"
         validationMsg="You must enter your password!"
         onConfirm={ inputValue => {
-          let passwordkey = "solarleap"
+          let passwordkey = "0000"
           if (inputValue === passwordkey){
             {this.hideAlert()}
             console.log('the password');
@@ -80,6 +82,7 @@ class Recordpage extends Component {
                 <Buttons />
               </Row>
               <br/>
+              <Footerpanel />
             </Grid>
         </div>
       </div>

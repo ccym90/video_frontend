@@ -94,7 +94,7 @@ class uploadPage extends Component {
         title="Enter Password"
         validationMsg="You must enter your password!"
         onConfirm={ inputValue => {
-          let passwordkey = "solarleap"
+          let passwordkey = "0000"
           if (inputValue === passwordkey){
             {this.hideAlert()}
             console.log('the password');
