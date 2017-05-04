@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import RecordPage from './pages/recordpage';
 import Librarypage from './pages/librarypage';
 import uploadPage from './pages/uploadPage';
-import LoginPage from './pages/loginpage';
 import homePage from './pages/homepageIndexByTag'
 import { Provider } from 'react-redux';
 import {Link } from 'react-router-dom';
