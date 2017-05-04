@@ -125,18 +125,19 @@ class Buttons extends React.Component {
     // data.append('uuid', url, 'video.webm')
 
 
+    // let saveSweetalert = (e) => {
+    //   return(
+    //     <SweetAlert success title="Good job!" onConfirm={this.hideAlert}>
+    //     You clicked the button!
+    //     </SweetAlert>
+    //   )
+      // };
 
     const config = {  };
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
-              let saveSweetalert = (e) => {
-                return(
-                  <SweetAlert success title="Good job!" onConfirm={this.hideAlert}>
-                  You clicked the button!
-                  </SweetAlert>
-                )
-              };
+              alert('Congrats, your video has been saved! Make another one? ;)')
               }
            )
            .catch(function (err) {

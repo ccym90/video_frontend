@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import './homepageIndexByTag.css';
 import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../components/header';
 import axios from 'axios';
@@ -72,9 +72,10 @@ class homePage extends Component {
             {this.state.english.map(function(english) {
               return(
                   <div className="col-sm-6 col-md-4">
-                    <div className='row'>
                       <div className="thumbnail">
-                        <video controls src={english.path}/>
+                        <div className='showVid'>
+                          <video className='vid' controls src={english.path}/>
+                        </div>
                         <div className="caption">
                           <h3>{english.title}</h3>
                           <p>
@@ -83,7 +84,6 @@ class homePage extends Component {
                         </div>
                       </div>
                     </div>
-                  </div>
               );
             })}
 
@@ -107,13 +107,15 @@ class homePage extends Component {
 
                     <div className='row'>
                       <div className="thumbnail">
-                        <video controls src={geography.path}/>
-                        <div className="caption">
-                          <h3>{geography.title}</h3>
-                          <p>
-                            <p>Author: {geography.author}</p>
-                          </p>
+                        <div className='showVid'>
+                          <video className='vid' controls src={geography.path}/>
                         </div>
+                          <div className="caption">
+                            <h3>{geography.title}</h3>
+                            <p>
+                              <p>Author: {geography.author}</p>
+                            </p>
+                          </div>
                       </div>
                     </div>
 
@@ -132,26 +134,30 @@ class homePage extends Component {
       return(
         <div>
 
-          <div className='row'>
+          <div>
             <h2>Suggestions: Computer Science</h2>
 
             {this.state.computer.map(function(computer) {
               return(
-                  <div className="col-sm-6 col-md-4">
 
-                    <div className='row'>
-                      <div className="thumbnail">
-                        <video controls src={computer.path}/>
+
+                <div className="col-sm-6 col-md-4">
+
+                  <div className='row'>
+                    <div className="thumbnail">
+                      <div className='showVid'>
+                        <video className='vid' controls src={computer.path}/>
+                      </div>
                         <div className="caption">
                           <h3>{computer.title}</h3>
                           <p>
                             <p>Author: {computer.author}</p>
                           </p>
                         </div>
-                      </div>
                     </div>
-
                   </div>
+
+                </div>
 
               );
             })}
@@ -171,7 +177,7 @@ class homePage extends Component {
 
                 <br/>
                 <hr/>
-                  <div className='row'>
+                  <div className='row' id='container-index'>
                   {renderLibrary()}
                   </div>
                   <div className='row'>

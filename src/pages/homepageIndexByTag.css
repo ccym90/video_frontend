@@ -1,0 +1,40 @@
+#container-index {
+
+  display: block;
+  width: 100%;
+
+}
+
+
+
+
+
+
+.thumbnail {
+   display: inline-block;
+   height: 100%;
+}
+
+.showVid {
+    position:relative;
+    overflow:hidden;
+}
+
+.showVid vid{
+    position:absolute;
+}
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.thumbnail {
+  height: 100%;
+  width:100$;
+}
+
+/* extra positioning */
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+}
