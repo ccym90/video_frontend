@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row } from 'react-bootstrap';
-import Header from '../components/header';
+import Header from '../../components/header';
+import Footerpanel from '../../components/footer';
 import './uploadPage.css';
 import axios from 'axios';
 import SweetAlert from 'react-bootstrap-sweetalert';
@@ -192,6 +193,7 @@ class uploadPage extends Component {
               <br/>
           </Grid>
       </div>
+      <Footerpanel />
       </div>
     )
   }

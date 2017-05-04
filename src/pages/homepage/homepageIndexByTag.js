@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 import { Grid, Row, button } from 'react-bootstrap';
-import Header from '../components/header';
+import Header from '../../components/header';
 import axios from 'axios';
 
 

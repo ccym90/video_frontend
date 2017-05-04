@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { preview } from '../redux/actions';
 import { connect } from 'react-redux';
-import '../pages/recordpage.css';
+import '../pages/record/recordpage.css';
 
 class Playback extends Component {
 

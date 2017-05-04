@@ -8,10 +8,10 @@ import './index.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import RecordPage from './pages/recordpage';
-import Librarypage from './pages/librarypage';
-import uploadPage from './pages/uploadPage';
-import homePage from './pages/homepageIndexByTag'
+import RecordPage from './pages/record/recordpage';
+import Librarypage from './pages/library/librarypage';
+import uploadPage from './pages/upload/uploadPage';
+import homePage from './pages/homepage/homepageIndexByTag'
 import { Provider } from 'react-redux';
 import {Link } from 'react-router-dom';
 

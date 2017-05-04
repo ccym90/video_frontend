@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Webcam from '../components/webcam';
-import Playback from '../components/playbackvideo';
-import Buttons from '../components/buttons';
-import Header from '../components/header';
-import Footerpanel from '../components/footer';
+import Webcam from '../../components/webcam';
+import Playback from '../../components/playbackvideo';
+import Buttons from '../../components/buttons';
+import Header from '../../components/header';
+import Footerpanel from '../../components/footer';
 import './recordpage.css';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import swal from 'sweetalert';

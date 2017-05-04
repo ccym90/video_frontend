@@ -2,7 +2,7 @@ import React from 'react';
 import { captureUserMedia } from '../App.js';
 import { connect } from 'react-redux';
 import { streaming } from '../redux/actions';
-import '../pages/recordpage.css';
+import '../pages/record/recordpage.css';
 
 const hasGetUserMedia = !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
   navigator.mozGetUserMedia || navigator.msGetUserMedia);

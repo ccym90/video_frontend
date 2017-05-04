@@ -6,8 +6,7 @@ class Footerpanel extends React.Component {
 
   render() {
     return (
-      <Footer className="Footer">
-      <p className="copyrights">© 2017 Copyright Text & Copy</p>
+      <Footer className="Footer"><a>© 2017 Copyright Text & Copy </a>
       </Footer>
     )
   }
