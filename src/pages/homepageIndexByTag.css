@@ -1,19 +1,17 @@
 #container-index {
-
   display: block;
   width: 100%;
-
 }
 
-
-
-
-
-
-.thumbnail {
-   display: inline-block;
-   height: 100%;
+#super {
+  background-color: black;
+  width:100%;
 }
+
+.row {
+  width: 100%;
+}
+
 
 .showVid {
     position:relative;
@@ -22,19 +20,5 @@
 
 .showVid vid{
     position:absolute;
-}
 
-.row.display-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-.thumbnail {
-  height: 100%;
-  width:100$;
-}
-
-/* extra positioning */
-.thumbnail {
-  display: flex;
-  flex-direction: column;
 }

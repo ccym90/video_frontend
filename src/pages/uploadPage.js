@@ -62,20 +62,26 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-    data.append('uuid', this.state.uuid, 'video.webm')
+
 
     const config = {  };
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
-             alert('Congrats, your video has been uploaded');
+              alert('Congrats, your video has been uploaded');
            })
            .catch(function (err) {
              console.log(err);
              alert('Sorry, please fill out all the form');
            });
-  };
 
+   this.title.value = '';
+   this.author.value = '';
+   this.subject.value = '';
+   this.description.value = '';
+   this.file.value = null;
+
+  };
   hideAlert() {
     this.setState({
       alert: null
@@ -114,7 +120,7 @@ class uploadPage extends Component {
                 <hr/>
                 <p>Here you can upload a video from your mobile, or computer and save to the video library.
                 <strong> Before saving, please ensure you fill out the form below.</strong> </p>
-                <p>Information to see how to use the uploader watch <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="How to Upload">How To Upload Video</a>.</p>
+                <p>Information to see how to use the uploader <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
               <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
                 <div className="form-group">
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>

@@ -41,7 +41,9 @@ video {
 
 video:last-of-type {
  margin: 0 0 20px 0;
- float: left;
+
+ background: cadetblue;
+
 }
 
 .previewVid {
