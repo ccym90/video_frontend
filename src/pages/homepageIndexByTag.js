@@ -73,7 +73,7 @@ class homePage extends Component {
 
             {this.state.english.map(function(english) {
               return(
-                  <div className="col-sm-6 col-md-4">
+                  <div className="col-xs-6 col-sm-6 col-md-3">
 
                     <div className='row' >
                       <div className="thumbnail">
@@ -99,7 +99,6 @@ class homePage extends Component {
       )
     }
 
-
     let renderGeo = () => {
 
       return(
@@ -110,9 +109,9 @@ class homePage extends Component {
 
             {this.state.geography.map(function(geography) {
               return(
-                  <div className="col-sm-6 col-md-4">
+                  <div className="col-xs-6 col-sm-6 col-md-3">
 
-                    <div className='row'>
+                    <div className='row '>
                       <div className="thumbnail">
                         <div className='showVid'>
                           <video className='vid' controls src={geography.path}/>
@@ -139,18 +138,18 @@ class homePage extends Component {
     let renderCompu = () => {
 
       return(
-        <div>
+        <div className='container-fluid'>
+          <h2>Suggestions: Computer Science</h2>
+          <div className='row'>
 
-          <div>
-            <h2>Suggestions: Computer Science</h2>
 
             {this.state.computer.map(function(computer) {
               return(
 
 
-                <div className="col-sm-6 col-md-4">
+                <div className="col-xs-6 col-sm-6 col-md-3">
 
-                  <div className='row'>
+
                     <div className="thumbnail">
                       <div className='showVid'>
                         <video className='vid' controls src={computer.path}/>
@@ -162,9 +161,9 @@ class homePage extends Component {
                           </p>
                         </div>
                     </div>
-                  </div>
 
-                </div>      
+
+                </div>
 
               );
             })}
@@ -184,14 +183,14 @@ class homePage extends Component {
 
                 <br/>
                 <hr/>
-                  <div className='row' id='container-index'>
+                  <div className='row'>
+                  {renderCompu()}
+                  </div>
+                  <div className='row' >
                   {renderLibrary()}
                   </div>
                   <div className='row'>
                   {renderGeo()}
-                  </div>
-                  <div className='row'>
-                  {renderCompu()}
                   </div>
 
           </Grid>

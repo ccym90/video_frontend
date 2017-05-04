@@ -62,7 +62,7 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-    data.append('uuid', this.state.uuid, 'video.webm')
+    
 
     const config = {  };
     axios.post('/upload', data, config)
@@ -74,6 +74,12 @@ class uploadPage extends Component {
              console.log(err);
              alert('Sorry, please fill out all the form');
            });
+
+   this.title.value = '';
+   this.author.value = '';
+   this.subject.value = '';
+   this.description.value = '';
+   this.file.value = null;
 
   };
   hideAlert() {
