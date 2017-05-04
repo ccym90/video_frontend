@@ -4,11 +4,9 @@ import Webcam from '../../components/webcam';
 import Playback from '../../components/playbackvideo';
 import Buttons from '../../components/buttons';
 import Header from '../../components/header';
-import Footerpanel from '../../components/footer';
+import FooterRecord from './footerrecord';
 import './recordpage.css';
 import SweetAlert from 'react-bootstrap-sweetalert';
-import swal from 'sweetalert';
-
 
 window.React = React;
 window.SweetAlert = SweetAlert;
@@ -82,8 +80,8 @@ class Recordpage extends Component {
                 <Buttons />
               </Row>
               <br/>
-              <Footerpanel />
             </Grid>
+            <FooterRecord />
         </div>
       </div>
     )

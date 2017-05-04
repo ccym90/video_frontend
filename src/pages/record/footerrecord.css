@@ -1,9 +1,9 @@
-.page-footer.Footer {
+.Footer {
   background-color: rgb(1, 193, 193);
   height: 60px;
   width: 100%;
   bottom: 0;
-  position: fixed;
+  position: absolute;
   display: block;
   margin: 0 auto 0 auto;
   padding: 0 auto 0 auto;
