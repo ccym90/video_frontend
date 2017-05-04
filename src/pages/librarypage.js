@@ -133,7 +133,7 @@ class Librarypage extends Component {
           <Row className="videorow">
             <h1>Video Library</h1>
             <hr/>
-            <p> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</p>
+            <h4> Type in the search bar to find a video from the library. Search by topic, author, or any keyword.</h4>
             <Row className="search">
             <br/>
             <Row className="filteredlibrary">

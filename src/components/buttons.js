@@ -109,6 +109,7 @@ class Buttons extends React.Component {
 
 
   handleSubmit = (e) => {
+    var self = this;
     e.preventDefault();
     let buffer = this.state.recordVideo.blob;
     let url = window.URL.createObjectURL(buffer)
@@ -124,15 +125,19 @@ class Buttons extends React.Component {
     // data.append('uuid', url, 'video.webm')
 
 
+    // let saveSweetalert = (e) => {
+    //   return(
+    //     <SweetAlert success title="Good job!" onConfirm={this.hideAlert}>
+    //     You clicked the button!
+    //     </SweetAlert>
+    //   )
+      // };
 
     const config = {  };
-    var self = this;
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
-
               alert('Congrats, your video has been saved! Make another one? ;)')
-
               }
            )
            .catch(function (err) {
@@ -152,14 +157,14 @@ class Buttons extends React.Component {
         });
   }
 
-  render() {
+  // let saveSweetalert = (e) => {
+  //   return(
+  //     <SweetAlert success title="Good job!" onConfirm={this.onConfirm}>
+  //     You clicked the button!
+  //     </SweetAlert>
+  //   )};
 
-    let saveSweetalert = (e) => {
-      return(
-        <SweetAlert success title="Good job!" onConfirm={this.onConfirm}>
-        You clicked the button!
-        </SweetAlert>
-    )};
+  render() {
 
     return (
       <div>

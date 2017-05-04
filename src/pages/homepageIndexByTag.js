@@ -4,7 +4,7 @@ import './homepageIndexByTag.css';
 import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../components/header';
 import axios from 'axios';
-
+import Footerpanel from '../components/footer';
 
 
 // This component will render the search bar and videos organised by Index by Tag
@@ -66,16 +66,13 @@ class homePage extends Component {
     let renderLibrary = () => {
 
       return(
-        <div className='row' >
-
-          <div >
+        <div className="homepagecontainer">
+          <div className='row'>
             <h2>Suggestions: English</h2>
-
             {this.state.english.map(function(english) {
               return(
-                  <div className="col-xs-6 col-sm-6 col-md-3">
-
                     <div className='row' >
+
                       <div className="thumbnail">
                         <div className='showVid'>
                           <video className='vid' controls src={english.path}/>
@@ -88,9 +85,6 @@ class homePage extends Component {
                         </div>
                       </div>
                     </div>
-
-                  </div>
-
               );
             })}
 
@@ -193,8 +187,13 @@ class homePage extends Component {
                   {renderGeo()}
                   </div>
 
+                  <div className='row'>
+                  {renderCompu()}
+                  </div>
+
           </Grid>
       </div>
+      <Footerpanel />
     </div>
 
     );

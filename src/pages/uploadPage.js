@@ -62,13 +62,13 @@ class uploadPage extends Component {
     data.append('subject', this.state.subject);
     data.append('description', this.state.description);
     data.append('file', this.state.file, 'video.webm');
-    
+
 
     const config = {  };
     axios.post('/upload', data, config)
            .then(function (res) {
               console.log(res);
-             alert('Congrats, your video has been uploaded');
+              alert('Congrats, your video has been uploaded');
            })
            .catch(function (err) {
              console.log(err);

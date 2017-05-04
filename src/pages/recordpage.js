@@ -60,7 +60,7 @@ class Recordpage extends Component {
                 <hr/>
                 <p>This page allows you to create your own video. This recorder only supports Firefox 29 or later & Chrome 47 or later.
                 <strong> Before saving, please ensure you fill out the form below.</strong> </p>
-                <p>For more information on how to use the recorder see <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
+                <p>For more information on how to use the recorder watch <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">How To Record Video</a>.</p>
               </Row>
               <Row className="videorow" >
                 <div className='webcam'>

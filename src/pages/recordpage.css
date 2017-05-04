@@ -41,8 +41,13 @@ video {
 
 video:last-of-type {
  margin: 0 0 20px 0;
+
  background: cadetblue;
 
+}
+
+.previewVid {
+  background-color: rgb(1, 193, 193)
 }
 
 .webcam {
