@@ -5,6 +5,7 @@ import Footerpanel from '../../components/footer';
 import { Grid, Row, button } from 'react-bootstrap';
 import Header from '../../components/header';
 import axios from 'axios';
+import {Link } from 'react-router-dom';
 
 
 
@@ -70,102 +71,21 @@ class homePage extends Component {
         <div>
 
           <div className='row'>
-            <h2>Suggestions: English</h2>
+            <h2>Welcome!</h2>
+            <p>This is a platform created by Viviane Wu & Claire Martin, with the purpose to help teachers generate their own video materials for teaching purposes.
 
-            {this.state.english.map(function(english) {
-              return(
-                  <div className="col-sm-6 col-md-4">
+            You can <a href="#"><Link to='/Record'>record</Link></a> and your own content which is saved to the library. Please use a suitable microphone and headset when recording.
 
-                    <div className='row'>
-                      <div className="thumbnail">
-                        <video controls src={english.path}/>
-                        <div className="caption">
-                          <h3>{english.title}</h3>
-                          <p>
-                            <p>Author: {english.author}</p>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+            You can also <a href="#"><Link to='/Upload'>upload</Link></a>  videos from your own device.
 
-                  </div>
+            All videos saved can be accessed in the Library. Happy Teaching!</p> <br></br>
 
-              );
-            })}
 
           </div>
         </div>
       )
     }
 
-
-    let renderGeo = () => {
-
-      return(
-        <div>
-
-          <div className='row'>
-            <h2>Suggestions: Geography</h2>
-
-            {this.state.geography.map(function(geography) {
-              return(
-                  <div className="col-sm-6 col-md-4">
-
-                    <div className='row'>
-                      <div className="thumbnail">
-                        <video controls src={geography.path}/>
-                        <div className="caption">
-                          <h3>{geography.title}</h3>
-                          <p>
-                            <p>Author: {geography.author}</p>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-              );
-            })}
-
-          </div>
-        </div>
-      )
-    }
-
-    let renderCompu = () => {
-
-      return(
-        <div>
-
-          <div className='row'>
-            <h2>Suggestions: Computer Science</h2>
-
-            {this.state.computer.map(function(computer) {
-              return(
-                  <div className="col-sm-6 col-md-4">
-
-                    <div className='row'>
-                      <div className="thumbnail">
-                        <video controls src={computer.path}/>
-                        <div className="caption">
-                          <h3>{computer.title}</h3>
-                          <p>
-                            <p>Author: {computer.author}</p>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-              );
-            })}
-
-          </div>
-        </div>
-      )
-    }
 
 
   return (
@@ -179,12 +99,6 @@ class homePage extends Component {
                 <hr/>
                   <div className='row'>
                   {renderLibrary()}
-                  </div>
-                  <div className='row'>
-                  {renderGeo()}
-                  </div>
-                  <div className='row'>
-                  {renderCompu()}
                   </div>
 
           </Grid>
